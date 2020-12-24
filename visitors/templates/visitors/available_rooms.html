@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<h2>Available Rooms</h2>
+</div>
+
+
+{% if available_rooms %}
+{% for room in available_rooms %}
+
+<table>
+    <tr>
+    <th>Room Type</th>
+    <th>Floor</th> 
+    <th>Direction</th>
+    <th>Number Of People</th>
+    <th>Number of Beds</th>
+    <th>Check-In</th>
+    <th>Check-Out</th>
+    <th>See details</th>
+    <th>Book Room</th>
+    </tr>
+
+    <tr>
+        <td>{{room.room_type}}</td>
+        <td>{{room.floor}}</td>
+        <td>{{room.room_view_direction}}</td>
+        <td>{{room.nbr_peoples}}</td>
+        <td>{{room.nbr_beds}}</td>
+        <td>{{booking.arrival}}</td>
+        <td>{{booking.departure}}</td>
+        <td><a href="{% url 'detail_room' pk=room.id %}">See Room Detail </a></td>
+        <td><a href="{% url 'book_room' pk=room.id %}">Book ROOM</a></td>
+    </tr>
+</table>
+
+
+
+
+{% endfor %}
+
+
+{% endif %}
+
+
+
+{% endblock %}

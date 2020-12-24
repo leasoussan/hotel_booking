@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="page">
+    <div class="container">
+    
+
+
+<h4>Room {{room.id}}</h4>
+<h1>{{room.picture}}</h1>
+<h2>Nbr of People : {{room.nbr_peoples}}</h2>
+<h2>Nbr of Beds: {{room.nbr_beds}}</h2>
+
+
+{{room.room_type}}
+{{room.floor}}
+{{room.room_view_direction}}
+{{room.nbr_peoples}}
+{{room.nbr_beds}}
+<button type="submit"><a href="{% url 'book_room' pk=room.id %}">BOOK</a> </button>
+
+{% endblock %}
+    

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class= profile_info>
+<h2>here are your details</h2>
+</div>
+
+{% if booking_list %}
+<h1>{{heading}}</h1>
+<h4>Booking {{booking.id}}</h4>
+<h1>{{booking.text}}</h1>
+<h2>Arrivale: {{booking.arival_date}}</h2>
+<h2>Departure: {{booking.departure_date}}</h2>
+<h2>Room Details: {{booking.room_type}}</h2>
+
+
+
+{% endblock %}

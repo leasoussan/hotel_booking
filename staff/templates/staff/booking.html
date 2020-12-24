@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>BOOOKING PAGE  </h1>
+{% if booking_list %}
+{% for booking in booking_list %}
+<h1>booking.bk_room_number</h1>
+
+
+{% endfor %}
+
+{% endif %}
+
+
+{% endblock %}
+    

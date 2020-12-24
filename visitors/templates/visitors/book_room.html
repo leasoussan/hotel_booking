@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% load bootstrap4 %}       {# import bootstrap4/bootstrap3 #}
+{% bootstrap_css %}         {# Embed Bootstrap CSS #}
+{% bootstrap_javascript jquery='full' %}  {# Embed Bootstrap JS+jQuery #}
+{{ form.media }}            {# Adds date-picker required JS and CSS #}
+
+{% block content %}
+
+
+
+
+<!-- <a href="{% url 'book_room' %}" class="btn btn-primary" >Back to Search Home Page </a> -->
+
+
+<main class="main-content">
+				
+<div class="row">
+    <div class="col-md-5">
+        <div class="project-images">
+
+            <div class="thumb">
+                <a href="#"><mg src="{% static  'images/rooms/1BR_single.jpg' %}" alt="#"></a>
+                <a href="#"><img src="{% static 'images/rooms/1BR_single.jpg' %}" alt="#"></a>
+                <a href="#"><img src="{% static  'images/rooms/1BR_single.jpg' %}" alt="#"></a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-7">
+        <div class="project-detail">
+            
+            <h2 class="project-title">Room {{room.room_type}}</h2>
+            <p>This room is located on the {{room.floor}}th floor of our resort <br>
+            with a view on {{room.room_view_direction}}</p>
+            <p>You have {{room.nbr_beds}} beds and can accomodate {{room.nbr_peoples}} peoples easely</p>
+        </div>
+    </div>
+</div>
+</div>
+</div> 
+
+
+{% endblock %}
