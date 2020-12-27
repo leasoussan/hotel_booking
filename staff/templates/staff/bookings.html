@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>BOOOKINGS PAGE  </h1>
+{% if booking_list %}
+{% for booking in booking_list %}
+<table>
+    <tr>
+    <th>Booking Number</th>
+    <th>Arrival</th> 
+    <th>departure</th>
+    <th>Room</th>
+    <th>customer</th>
+    <th>Nbr Guests</th>
+    </tr>
+
+    <tr>
+        <td><a href="{% url 'booking_detail' booking.id %}">{{booking.id}}</a></td>
+        <td>{{booking.arrival}}</td>
+        <td>{{booking.departure}}</td>
+        <td><a href="{% url 'detail_room' booking.room.id %}">room Nbr </a></td>
+        <td><a href="#">Customer </a></td>
+        <td>{{booking.nbr_ppl}}</td>
+    </tr>
+</table>
+<a href="{% url 'delete_booking'  booking.id %}">Delete Booking </a>
+
+
+{% endfor %}
+
+<a href="{% url 'new_booking' %}">New Booking</a>
+
+
+{% endif %}
+
+
+{% endblock %}
+    

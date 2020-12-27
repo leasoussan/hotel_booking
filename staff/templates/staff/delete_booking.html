@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>New Booking</h1>
+
+<form action="" method="post">
+{% csrf_token %}
+
+<h2>Please confirm that you would like to delete the bellow Booking</h2>
+<td>{{booking.id}}</td>
+<td>{{booking.arrival}}</td>
+<td>{{booking.departure}}</td>
+<td>{{booking.room}}</td>
+<td>{{booking.customer}}</td>
+<td>{{booking.nbr_ppl}}</td>
+
+
+<input type="submit" value="Confirm">
+
+</form>
+
+
+{% endblock %}
+    

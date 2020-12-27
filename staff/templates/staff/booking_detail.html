@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<a href="{% url 'delete_booking' booking.id %}">Delete Booking </a>
+
+<h2><a href="{% url 'edit_booking' booking.pk %}">Edit Booking</a> </h2>
+<h1>Detail of Booking {{booking.id}}  </h1>
+<table>
+    <tr>
+    <th>Booking Number</th>
+    <th>Arrival</th> 
+    <th>departure</th>
+    <th>Room</th>
+    <th>customer</th>
+    <th>Nbr Guests</th>
+    </tr>
+
+    <tr>
+        <td>{{booking.id}}</td>
+        <td>{{booking.arrival}}</td>
+        <td>{{booking.departure}}</td>
+        <td>{{booking.room}}</td>
+        <td>{{booking.customer}}</td>
+        <td>{{booking.nbr_ppl}}</td>
+    </tr>
+</table>
+<h2>Number of Nights</h2>
+<h3></h3>
+<h2>Total Booking Price  </h2>
+<h2>{{booking.room.room_size.price}}  </h2>
+
+
+
+{% endblock %}
+    

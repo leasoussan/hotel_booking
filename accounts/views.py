@@ -1,12 +1,13 @@
 from django.shortcuts import render, redirect
 from django.views.generic import CreateView, View
-from django.contrib.auth.forms import UserCreationForm
+from django.views import generic
+
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.models import User
 from django.urls import reverse_lazy
 from visitors.models import Customer
 from accounts.forms import MyUserCreationForm, CustomerCreateForm
-
+from django.contrib.auth.forms import UserCreationForm
 
 class Register(View):
     def get(self, request):
@@ -34,4 +35,14 @@ class Register(View):
 
 # when I do the user = authenticate.... it's because I wouldlike to get the details to automaticaly log the user 
 # to make sure the username and passowrd are correcte
+
+
+
+# another way to do the registration form: 
+
+class SignUpView(CreateView):
+    form_class = UserCreationForm
+    success_url = reverse_lazy('login')
+    template_name = 'registration/signup.html'
+
 

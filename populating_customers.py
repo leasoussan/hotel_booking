@@ -16,27 +16,44 @@ from django.contrib.auth.models import User
 
 fake_c = Faker()
 
-
-def populating_customers(n):
+def pop_users(n):
     for i in range(n):
-        # generating fake data
-        f_first_name = fake_c.first_name()
-        f_last_name = fake_c.last_name()
-        f_email = fake_c.email()
+        user = User.objects.create_user(
+            first_name = fake_c.first_name(),
+            last_name =fake_c.last_name(),
+            email = fake_c.email(),
+            username =  fake_c.user_name())
+        user.save()
         
-        
-        # creating data object and saving to DB
-        customer = Customer(
+        customer = Customer.objects.create(
             phone_number=fake_c.phone_number(),
             address=fake_c.address(),
             city=fake_c.city(),
-            country =fake_c.country(),
-            user = User.objects.create_user(username=f_first_name, password = f_last_name)
-        )
+            country =fake_c.country(),     
+            user = user,       
+            )
+    
         customer.save()
         print(f'Created Customer:{customer.id}')
     
     # finished
     print(f"Finished...{n} entries populated.")
 
+
+# pop_users(30)
+
+
+                # 
+        
+
+def pop_booking(n):
+    # for i in range(n):
+    # booking = Booking(
+    #     arrival= 
+    #     departure = 
+    #     room = 
+    #     customer
+    #     nbr_ppl = 
+    #     )
+    pass
 

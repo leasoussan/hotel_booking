@@ -16,7 +16,7 @@
 										
 				<form action="{% url 'search' %}" method="POST">
 					{% csrf_token %}
-			
+		
 					{{ form }}
 					<button type="submit"><a href="{% url 'search' %}"></a>	Search</button>
 				</form>

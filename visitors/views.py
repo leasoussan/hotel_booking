@@ -1,16 +1,19 @@
 from django.shortcuts import render, redirect
 from django.views import generic
+from django.views.generic import TemplateView
 from .models import *
 from .forms import * 
 import datetime
-from django.db.models import Q
 
 
 
-def home(request):
-    if request.method == "GET":
-        form = SearchBookingForm()
-        return render(request, 'visitors/homepage.html', {"form":form})
+class HomePageView(TemplateView):
+    template_name = 'visitors/homepage.html'
+    form = SearchBookingForm()
+
+
+class AboutView(TemplateView):
+    template_name = 'visitors/about.html'
 
 
 def check_availability_form(request):
@@ -49,10 +52,10 @@ class MyBookings(generic.ListView):
     model = Booking
     template_name = 'my_booking.html'
 
-def get_context_data(self, **kwargs):
+    def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs) 
 
-        return context
+        
 
 
 

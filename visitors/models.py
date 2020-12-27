@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from staff.models import Hotel,Image
 import datetime
+from django.urls import reverse
 
 
 
@@ -68,8 +69,9 @@ class Booking(models.Model):
     def __str__(self):
         return f"{self.customer}Booked Room {self.room}from {self.arrival}{self.departure}"
 
-
-
+    def get_absolute_url(self):
+        return reverse('booking_detail', args=[str(self.id)])
+# this is to get back the booking after we did it here id has better usage thatn PK -django 
 
 
 
@@ -80,5 +82,7 @@ class GuestsMessage(models.Model):
 
 def __str__(self):
         return f"{self.guest}{self.guest.room.room_nbr}"
+
+
 
 
