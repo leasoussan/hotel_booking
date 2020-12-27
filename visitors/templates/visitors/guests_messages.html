@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<h2>Messages</h2>
+</div>
+
+
+{% if guestmessage_list %}
+{% for message in guestmessage_list %}
+
+<table>
+    <tr>
+    <th>Guest/room</th>
+    <th>Date</th> 
+    <th>Message</th>
+    
+    </tr>
+
+    <tr>
+        <td>{{guestmessage.customer.user.first_name}}{{booking.customer.user.last_name}}</td>
+        <td>{{guestmessage.text}}</td>
+        <td><a href="{% url 'detail_room' pk=room.id %}">See Room Detail </a></td>
+
+    </tr>
+</table>
+
+
+
+
+{% endfor %}
+
+
+{% endif %}
+
+
+
+{% endblock %}

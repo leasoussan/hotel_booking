@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views 
-from .views import AboutView, HomePageView
+from .views import AboutView, HomePageView, GuestsMessage
 
 urlpatterns = [
     path('', HomePageView.as_view(), name = "home"),
@@ -9,4 +9,6 @@ urlpatterns = [
     path('book_room/<int:pk>', views.book_room, name = "book_room"),
     path('room/<int:pk>', views.RoomView.as_view(), name = "detail_room"),
     path('my_booking/<int:pk>', views.MyBookings.as_view(), name = "my_booking"),    
+    path('messages/', views.GuestMessage.as_view(), name = "guest_message"),    
+
 ]

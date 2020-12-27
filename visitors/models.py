@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from staff.models import Hotel,Image
 import datetime
 from django.urls import reverse
+from django.contrib.auth import get_user_model
 
 
 
@@ -76,13 +77,22 @@ class Booking(models.Model):
 
 
 class GuestsMessage(models.Model):
-    guest = models.ForeignKey(Customer, on_delete=models.CASCADE)
     date = models.DateField(auto_now_add=True)
     text = models.TextField()
+    booking = models.ForeignKey(Booking, on_delete = models.CASCADE)
+    
+    def __str__(self):
+        return f"{self.booking.customer.user.first_name}"
 
-def __str__(self):
-        return f"{self.guest}{self.guest.room.room_nbr}"
+    def get_absolute_url(self):
+        return reverse('message_details', args=[str(self.id)])
 
+
+
+# This option can be done when you want t retreive the User 
+# guest = models.ForeignKey(get_user_model(), 
+#             on_delete=models.CASCADE,
+#             )
 
 
 

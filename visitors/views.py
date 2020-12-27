@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views import generic
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, ListView
 from .models import *
 from .forms import * 
 import datetime
@@ -71,3 +71,10 @@ class RoomView(generic.DetailView):
         return context
 
 
+
+class GuestMessage(generic.ListView):
+    model = GuestsMessage
+    template_name = 'visitors/guests_messages.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs) 

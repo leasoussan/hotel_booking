@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'bootstrap4',
     'bootstrap_datepicker_plus',
     'django_seed',
+    'crispy_forms',
 ]    
 
 MIDDLEWARE = [
@@ -149,3 +150,13 @@ BOOTSTRAP4 = {
 LOGIN_REDIRECT_URL = 'home'
 
 LOGOUT_REDIRECT_URL = 'home'
+
+# this is to use a customuser 
+AUTHI_USER_MODEL = 'accounts.CustomUser'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend',
+
+TIME_ZONE = 'Israel'
